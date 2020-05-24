@@ -3,9 +3,18 @@ def print_menu():
 1. Add matrices
 2. Multiply matrix by a constant
 3. Multiply matrices
+4. Transpose matrix
 0. Exit
 """)
 
+
+def print_menu2():
+    print("""
+1. Main diagonal
+2. Side diagonal
+3. Vertical line
+4. Horizontal line
+""")
 
 def check_matrix(matrix_sizeA, matrix_sizeB):
     if int(matrix_sizeA[1]) == int(matrix_sizeB[0]):
@@ -19,21 +28,21 @@ def enter_matrix(matrix_size):
     matrix = []
     #print(matrix)
     for x in range(int(matrix_size[0])):
-        row = input().split()
-        matrix.append([float(s) for s in row])
+        row = tuple(input().split())
+        matrix.append([float(s) if "." in s else int(s) for s in row])
+        #print(matrix)
     return matrix
 
 
 def enter_size_of_matrix(amount=2, is_same=False):
-    matrix_sizeA = input("Enter size of first martix: ").split()
-    if amount == 2:
-        print("Enter first matrix: ")
-    elif amount == 1:
-        print("Enter matrix: ")
-    matrixA = enter_matrix(matrix_sizeA)
     if amount == 1:
-        return matrixA
+        matrix_sizeA = input("Enter size of the martix: ").split()
+        print("Enter matrix: ")
+        return enter_matrix(matrix_sizeA)
     elif amount == 2:
+        matrix_sizeA = input("Enter size of first martix: ").split()
+        print("Enter first matrix: ")
+        matrixA = enter_matrix(matrix_sizeA)
         matrix_sizeB = input("Enter size of second martix: ").split()
         print("Enter second matrix: ")
         matrixB = enter_matrix(matrix_sizeB)
@@ -46,7 +55,7 @@ def enter_size_of_matrix(amount=2, is_same=False):
 
 
 def add_matrices(m1, m2):
-    return [[m1[i][j] + m2[i][j] for j in range(len(m1[0]))] for i in range(len(m2))]
+    return [[m1[i][j] + m2[i][j]  for j in range(len(m1[0]))] for i in range(len(m2))]
 
 
 def multiply_matrices_by_constant(matrix, const):
@@ -59,6 +68,18 @@ def multiply_matrices_by_constant(matrix, const):
 
 def multiply_matrices(m1, m2):
     return [[sum(a * b for a, b in zip(x_row, y_col)) for y_col in zip(*m2)] for x_row in m1]
+
+
+def transpose_matrix(matrix, method):
+    length = len(matrix[0]) - 1
+    if method == 1:
+        return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+    elif method == 2:
+        return [[matrix[length-j][length-i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+    elif method == 3:   # vertical
+        return [[matrix[i][length-j] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+    elif method == 4:   # horizontal
+        return [[matrix[length-i][j] for j in range(len(matrix))] for i in range(len(matrix[0]))]
 
 
 def print_matrix(result):
@@ -83,9 +104,22 @@ while True:
             matrixA, matrixB = enter_size_of_matrix(is_same=True)
             print_matrix(multiply_matrices(matrixA, matrixB))
 
+        elif choice == 4:
+            print_menu2()
+            choice2 = int(input("Your choice: "))
+            matrixA = enter_size_of_matrix(amount=1)
+            if choice2 == 1:
+                print_matrix(transpose_matrix(matrixA, choice2))
+            elif choice2 == 2:
+                print_matrix(transpose_matrix(matrixA, choice2))
+            elif choice2 == 3:
+                print_matrix(transpose_matrix(matrixA, choice2))
+            elif choice2 == 4:
+                print_matrix(transpose_matrix(matrixA, choice2))
+
         elif choice == 0:
             break
         else:
-            print("You must enter a number from 0 to 4!")
+            print("You must enter a number for 0 to 4!")
     except:
         print("ERROR")
