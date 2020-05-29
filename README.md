@@ -2,7 +2,12 @@
 Calculating matrices
  
 ## Description
-Script allow to add matrices, multiply matrix by a constant and multiply matrices.
+The script allows:
+- add matrices
+- multiply matrix by a constant
+- multiply matrices
+- transpose matrix
+
 All numbers of matrices must be entered with spaces.
 It's one of the task from JetBrains Academy.
 
