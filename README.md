@@ -9,7 +9,7 @@ The script allows:
 - transpose matrix
 
 All numbers of matrices must be entered with spaces.
-It's one of the task from JetBrains Academy.
+It's one of the tasks from JetBrains Academy.
 
 ## Technologies
 * Python 3.7
