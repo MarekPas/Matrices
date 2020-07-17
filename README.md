@@ -7,6 +7,8 @@ The script allows:
 - multiply matrix by a constant
 - multiply matrices
 - transpose matrix
+- calculate determinant
+- inverse matrix
 
 All numbers of matrices must be entered with spaces.
 It's one of the tasks from JetBrains Academy.
