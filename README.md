@@ -1,5 +1,5 @@
 # Matrices
-Calculating matrices
+Calculating matrices. It's one of the projects in JetBrains Academy.
  
 ## Description
 The script allows:
@@ -11,7 +11,7 @@ The script allows:
 - inverse matrix
 
 All numbers of matrices must be entered with spaces.
-It's one of the tasks from JetBrains Academy.
+
 
 ## Technologies
 * Python 3.7
