@@ -3,12 +3,12 @@ Calculating matrices. It's one of the projects in JetBrains Academy.
  
 ## Description
 The script allows:
-- add matrices
-- multiply matrix by a constant
-- multiply matrices
-- transpose matrix
-- calculate determinant
-- inverse matrix
+- addition of matrices
+- multiplication of a matrix by a constant number
+- multiplication of matrices
+- transposeof a matrix
+- determinant calcualtion
+- inverse of a matrix
 
 All numbers of matrices must be entered with spaces.
 
